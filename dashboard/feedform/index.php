@@ -81,10 +81,6 @@
 						<h4 class="mdl-cell mdl-cell--12-col">Feedback</h4>
 						<div class="mdl-cell mdl-cell--12-col questions mdl-color--yellow-300">
 							<?php
-							$servername = "127.0.0.1";
-							$username = "root";
-							$password = "";
-							$dbname = "feedie_base";
 							$error = false;
 							$counter = 0;
 							if ( isset($_POST['q']) ){
@@ -98,7 +94,7 @@
 							}
 							if ( !$error ){
 								// Create connection
-								$conn = new mysqli($servername, $username, $password, $dbname);
+								//$conn = new mysqli($servername, $username, $password, $dbname);
 								$q = $_POST['q'];
 								$i = 1;
 								foreach( $q as $key ){

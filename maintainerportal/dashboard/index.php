@@ -41,6 +41,8 @@
 		<div class="container">
 			<div class="heading">Maintainer Dashboard</div>
 			<a href="students" class="button">Edit Students List</a>
+			<a href="classes" class="button">Add Classes</a>
+			<a href="verify" class="button">Verify Registered Students</a>
 			<a href="changeqs" class="button">Change Questions</a>
 			<a href="changesr" class="button">Change Star Rating</a>
 			<a href="changeoverall" class="button">Change Overall</a>

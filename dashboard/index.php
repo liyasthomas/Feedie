@@ -235,13 +235,9 @@
 								</script>
 								<div class="mdl-cell mdl-cell--12-col mdl-color-text--red-a400 questions">
 									<?php
-									$servername = "127.0.0.1";
-									$username = "root";
-									$password = "";
-									$dbname = "feedie_base";
 									if (isset($_POST["currentpassword"]) AND isset($_POST["newpassword"]) AND isset($_POST["renewpassword"])){
 										// Create connection
-										$conn = new mysqli($servername, $username, $password, $dbname);
+										//$conn = new mysqli($servername, $username, $password, $dbname);
 										$sql = "SELECT password FROM students WHERE st_username = '".$_SESSION["st_username"]."' AND class = '".$_SESSION["class"]."'";
 										$result = $conn->query($sql);
 										if ($result->num_rows > 0) {
