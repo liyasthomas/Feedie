@@ -100,6 +100,12 @@
 							if (isset($_POST["fullname"]) AND isset($_POST["rollno"]) AND isset($_POST["class"]) AND isset($_POST["dob"]) AND isset($_POST["phoneno"]) AND isset($_POST["email"]) AND isset($_POST["password"])){
 							    // Create connection
 								//$conn = new mysqli($servername, $username, $password, $dbname);
+								$sqlc = "SELECT st_username FROM students WHERE rollno = '".$_POST["rollno"]."'";
+								$resultc = $conn->query($sqlc);
+								if ( $resultc ) {
+								  echo "Account with reg no. ".$_POST["rollno"]." already registered! ";
+								}
+
 								$sql = "INSERT INTO registrations (st_username, rollno, class, dob, phoneno, email, password) VALUES('".$_POST["fullname"]."','".$_POST["rollno"]."','".$_POST["class"]."','".$_POST["dob"]."','".$_POST["phoneno"]."','".$_POST["email"]."','".$_POST["password"]."')";
 							    $result = $conn->query($sql);
 							    if($result){

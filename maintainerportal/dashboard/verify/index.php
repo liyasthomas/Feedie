@@ -77,8 +77,16 @@ tr:nth-child(even) {
                             while ($row = $result2->fetch_assoc()) {
                               $reg_id = $row["reg_id"];
                               if ( isset($r[$reg_id]) ) {
+
                               	if ( $_POST["submit"] == "Activate" ) {
                                 //echo $reg_id." "; //For identifying checked reg no.
+                              	  $sql5 = "SELECT st_username FROM students WHERE rollno = '".$row["rollno"]."'";
+                              	  $result5 = $conn->query($sql5);
+                              	  $row5 = $result5->fetch_assoc();
+                              	  if ( $result5 ) {
+                              	  	$errmsg = "Account already exist for ".$row5["st_username"].", ".$row["rollno"]." ! Please review further this account!";
+                              	  	goto here;
+                              	  }
                                   $sql3 = "INSERT INTO students (rollno, st_username, class, password) VALUES ('".$row["rollno"]."','".$row["st_username"]."','".$row["class"]."','".$row["password"]."')";
                                   $result3 = $conn->query($sql3);
                                 }
@@ -92,7 +100,7 @@ tr:nth-child(even) {
                                 else {
                                   $errmsg = "Sorry something went wrong! Please try again later!";
                                 }
-                                
+                                here:
                               }
                             }
                           }
